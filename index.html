@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather app</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;500;700&family=Montserrat:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="style/styling.css" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <button type="button" class="here" id="here">Current city</button>
+        <form class="form-inline" id="search-form">
+          <input
+            type="search"
+            placeholder="Type a city..."
+            autofocus="on"
+            autocomplete="off"
+            id="search-input"
+            class="form-control mr-sm-2"
+            aria-label="search"
+          />
+          <button
+            type="submit"
+            value="search"
+            class="btn btn-outline-secondary my-2 my-sm-0"
+          >
+            🔍
+          </button>
+        </form>
+      </div>
+
+      <div class="space"></div>
+
+      <div class="img-container">
+        <div class="city-result">
+          <h1 id="current-city">Mexico City</h1>
+          <h2 id="current-temp">
+            <span class="temperature" id="temp-number">75 F</span>
+          </h2>
+          <h2>
+            <span class="units">
+              <a href="#" id="fahrenheit-link">°F</a> |
+              <a href="#" id="celsius-link">°C</a>
+            </span>
+          </h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="current-time">
+            <h3 id="current-date">Thursday 16:00</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <span class="futureDay">M</span>
+          <br />
+          <span class="futureDate">7</span>
+          <br />
+          <p>🌤</p>
+          <br />
+          <span class="tempHigh">HIGH</span>
+          <br />
+          <span class="tempLow">LOW</span>
+        </div>
+        <div class="col-sm">
+          <span class="futureDay">T</span>
+          <br />
+          <span class="futureDate">8</span>
+          <br />
+          <p>🌥</p>
+          <br />
+          <span class="tempHigh">HIGH</span>
+          <br />
+          <span class="tempLow">LOW</span>
+        </div>
+        <div class="col-sm">
+          <span class="futureDay">W</span>
+          <br />
+          <span class="futureDate">9</span>
+          <br />
+          <p>☀️</p>
+          <br />
+          <span class="tempHigh">HIGH</span>
+          <br />
+          <span class="tempLow">LOW</span>
+        </div>
+        <div class="col-sm">
+          <span class="futureDay">T</span>
+          <br />
+          <span class="futureDate">10</span>
+          <br />
+          <p>🌤</p>
+          <br />
+          <span class="tempHigh">HIGH</span>
+          <br />
+          <span class="tempLow">LOW</span>
+        </div>
+        <div class="col-sm">
+          <span class="futureDay">F</span>
+          <br />
+          <span class="futureDate">11</span>
+          <br />
+          <p>🌦</p>
+          <br />
+          <span class="tempHigh">HIGH</span>
+          <br />
+          <span class="tempLow">LOW</span>
+        </div>
+      </div>
+    </div>
+    <script src="style/data.js"></script>
+  </body>
+</html>
