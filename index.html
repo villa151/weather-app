@@ -21,12 +21,13 @@
     />
 
     <link href="style/styling.css" rel="stylesheet" type="text/css" />
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <button type="button" class="here" id="here">Current city</button>
+      <div class="top-details">
+        <button type="button" class="here" id="here">📍</button>
         <form class="form-inline" id="search-form">
           <input
             type="search"
@@ -45,90 +46,98 @@
             🔍
           </button>
         </form>
-      </div>
 
-      <div class="space"></div>
+        <div class="space"></div>
 
-      <div class="img-container">
-        <div class="city-result">
-          <h1 id="current-city">Mexico City</h1>
-          <h2 id="current-temp">
-            <span class="temperature" id="temp-number">75 F</span>
-          </h2>
-          <h2>
-            <span class="units">
-              <a href="#" id="fahrenheit-link">°F</a> |
-              <a href="#" id="celsius-link">°C</a>
-            </span>
-          </h2>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="current-time">
-            <h3 id="current-date">Thursday 16:00</h3>
+        <div class="img-container">
+          <div class="city-result">
+            <h1 id="current-city">Mexico City</h1>
+            <h2 id="current-temp">
+              <span class="temperature" id="temp-number">75 F</span>
+            </h2>
+            <h2>
+              <span class="units">
+                <a href="#" id="fahrenheit-link">°F</a> |
+                <a href="#" id="celsius-link">°C</a>
+              </span>
+            </h2>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm">
-          <span class="futureDay">M</span>
-          <br />
-          <span class="futureDate">7</span>
-          <br />
-          <p>🌤</p>
-          <br />
-          <span class="tempHigh">HIGH</span>
-          <br />
-          <span class="tempLow">LOW</span>
+
+      <div class="bottom-details">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="current-time">
+              <h3 id="current-date">Thursday 16:00</h3>
+            </div>
+          </div>
         </div>
-        <div class="col-sm">
-          <span class="futureDay">T</span>
-          <br />
-          <span class="futureDate">8</span>
-          <br />
-          <p>🌥</p>
-          <br />
-          <span class="tempHigh">HIGH</span>
-          <br />
-          <span class="tempLow">LOW</span>
-        </div>
-        <div class="col-sm">
-          <span class="futureDay">W</span>
-          <br />
-          <span class="futureDate">9</span>
-          <br />
-          <p>☀️</p>
-          <br />
-          <span class="tempHigh">HIGH</span>
-          <br />
-          <span class="tempLow">LOW</span>
-        </div>
-        <div class="col-sm">
-          <span class="futureDay">T</span>
-          <br />
-          <span class="futureDate">10</span>
-          <br />
-          <p>🌤</p>
-          <br />
-          <span class="tempHigh">HIGH</span>
-          <br />
-          <span class="tempLow">LOW</span>
-        </div>
-        <div class="col-sm">
-          <span class="futureDay">F</span>
-          <br />
-          <span class="futureDate">11</span>
-          <br />
-          <p>🌦</p>
-          <br />
-          <span class="tempHigh">HIGH</span>
-          <br />
-          <span class="tempLow">LOW</span>
+        <div class="row">
+          <div class="col-sm">
+            <span class="futureDay">M</span>
+            <br />
+            <span class="futureDate">7</span>
+            <br />
+            <p>🌤</p>
+            <br />
+            <span class="tempHigh">HIGH</span>
+            <br />
+            <span class="tempLow">LOW</span>
+          </div>
+          <div class="col-sm">
+            <span class="futureDay">T</span>
+            <br />
+            <span class="futureDate">8</span>
+            <br />
+            <p>🌥</p>
+            <br />
+            <span class="tempHigh">HIGH</span>
+            <br />
+            <span class="tempLow">LOW</span>
+          </div>
+          <div class="col-sm">
+            <span class="futureDay">W</span>
+            <br />
+            <span class="futureDate">9</span>
+            <br />
+            <p>☀️</p>
+            <br />
+            <span class="tempHigh">HIGH</span>
+            <br />
+            <span class="tempLow">LOW</span>
+          </div>
+          <div class="col-sm">
+            <span class="futureDay">T</span>
+            <br />
+            <span class="futureDate">10</span>
+            <br />
+            <p>🌤</p>
+            <br />
+            <span class="tempHigh">HIGH</span>
+            <br />
+            <span class="tempLow">LOW</span>
+          </div>
+          <div class="col-sm">
+            <span class="futureDay">F</span>
+            <br />
+            <span class="futureDate">11</span>
+            <br />
+            <p>🌦</p>
+            <br />
+            <span class="tempHigh">HIGH</span>
+            <br />
+            <span class="tempLow">LOW</span>
+          </div>
         </div>
       </div>
     </div>
+    <dev class="source-link">
+      <a href="https://github.com/villa151/weather-app" target="_blank"
+        >Open-source code</a
+      >
+      by Samantha Cabrera
+    </dev>
     <script src="style/data.js"></script>
   </body>
 </html>

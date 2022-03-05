@@ -1,11 +1,15 @@
 body {
   width: 100%;
   background-color: #483958bd;
+  height: 100vh;
 }
 .container {
   background-color: #f7f7f7a4;
   border: 2px solid #483958bd;
-  width: 110%;
+  border-radius: 5px;
+  width: 600px;
+  max-width: 80%;
+  padding: 0.8 cm;
 }
 
 .here {
@@ -130,4 +134,10 @@ p {
 .tempLow {
   color: rgb(75, 75, 75);
   font-weight: 100;
+}
+
+.source-link {
+  display: block;
+  text-align: center;
+  font-size: small;
 }
