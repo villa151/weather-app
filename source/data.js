@@ -40,7 +40,7 @@ function formatDate(now) {
 }
 
 let now = new Date();
-let h3 = document.querySelector("h3");
+let h3 = document.querySelector("#current-date");
 h3.innerHTML = formatDate(now);
 
 //search by city starts
@@ -52,6 +52,10 @@ function showCurrentTemp(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
   document.querySelector("#fahrenheit-link").innerHTML = "°C";
   document.querySelector("#celsius-link").innerHTML = "°F";
+  document.querySelector("#feels-like").innerHTML =
+    response.data.main.feels_like;
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#condition").innerHTML = response.weather.main;
 }
 
 function searchByCity(city) {

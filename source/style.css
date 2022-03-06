@@ -54,6 +54,18 @@ form {
   position: relative;
   border-radius: 4px;
 }
+.details-result {
+  float: right;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  right: 16px;
+  top: 15px;
+  font-size: 15px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: right;
+}
 
 .city-result {
   float: left;
@@ -77,6 +89,7 @@ h2 {
   font-weight: bold;
   display: inline-block;
 }
+
 .units {
   display: inline-block;
   font-size: 30px;
