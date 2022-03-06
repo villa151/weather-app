@@ -1,16 +1,15 @@
 body {
   width: 100%;
   background-color: #483958bd;
-  height: 100vh;
 }
 .container {
+  width: 600px;
+  max-width: 80%;
+  padding: 20 px;
+  margin: 20px auto;
   background-color: #f7f7f7a4;
   border: 2px solid #483958bd;
   border-radius: 5px;
-  width: 600px;
-  max-width: 80%;
-  padding: 0.8 cm;
-  margin-top: 1cm;
 }
 
 .here {
@@ -53,13 +52,15 @@ form {
   background-position: center;
   position: relative;
   border-radius: 4px;
+  text-align: left;
+  display: block;
 }
 .details-result {
   float: right;
   position: relative;
   font-family: "Montserrat", sans-serif;
   color: #fff;
-  right: 16px;
+  right: 8px;
   top: 15px;
   font-size: 15px;
   padding-right: 8px;
@@ -69,18 +70,19 @@ form {
 
 .city-result {
   float: left;
-  position: relative;
+  position: absolute;
   font-family: "Montserrat", sans-serif;
   color: #fff;
-  left: 16px;
-  top: 140px;
+  bottom: 10px;
+  left: 8px;
   font-weight: 900;
 }
 
 h1 {
-  font-size: 70px;
+  font-size: 65px;
   height: 75px;
   font-weight: bold;
+  overflow: hidden;
 }
 
 h2 {
@@ -92,7 +94,7 @@ h2 {
 
 .units {
   display: inline-block;
-  font-size: 30px;
+  font-size: 25px;
 }
 a:link {
   color: white;
