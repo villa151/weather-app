@@ -52,10 +52,12 @@ function showCurrentTemp(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
   document.querySelector("#fahrenheit-link").innerHTML = "°C";
   document.querySelector("#celsius-link").innerHTML = "°F";
-  document.querySelector("#feels-like").innerHTML =
-    response.data.main.feels_like;
+  document.querySelector("#feels-like").innerHTML = Math.round(
+    response.data.main.feels_like
+  );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#condition").innerHTML = response.weather.main;
+  document.querySelector("#condition").innerHTML =
+    response.data.weather[0].main;
 }
 
 function searchByCity(city) {
