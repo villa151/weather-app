@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather app</title>
+    <title>🌈 Find your weather</title>
 
     <link
       rel="stylesheet"
@@ -26,7 +26,21 @@
   </head>
   <body>
     <div class="container">
-      <div class="top-details">
+      <div class="weather-heading">
+        <button type="button" class="here" id="here">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-geo-alt-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+            />
+          </svg>
+        </button>
         <form class="form-inline" id="search-form">
           <input
             type="search"
@@ -34,14 +48,13 @@
             autofocus="on"
             autocomplete="off"
             id="search-input"
-            class="form-control mr-sm-2"
+            class="form-control mr-sm-1"
             aria-label="search"
           />
-
           <button
             type="submit"
             value="search"
-            class="btn btn-outline-secondary my-2 my-sm-0"
+            class="btn btn-outline-light my-2 my-sm-0"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -55,21 +68,8 @@
               />
             </svg>
           </button>
-          <button type="button" class="here" id="here">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-geo-alt-fill"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
-              />
-            </svg>
-          </button>
         </form>
+
         <div class="space"></div>
 
         <div class="img-container">
@@ -86,7 +86,8 @@
             </h2>
           </div>
         </div>
-         <div class="bottom-details">
+      </div>
+      <div class="weather-details">
         <div class="row">
           <div class="col-sm-12">
             <div class="current-time">
@@ -94,10 +95,6 @@
             </div>
           </div>
         </div>
-        <div class="row">
-      </div>
-
-      <div class="bottom-details">
         <div class="row">
           <div class="col-sm">
             <span class="futureDay">M</span>
