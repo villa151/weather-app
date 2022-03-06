@@ -20,14 +20,13 @@
       rel="stylesheet"
     />
 
-    <link href="style/styling.css" rel="stylesheet" type="text/css" />
+    <link href="source/style.css" rel="stylesheet" type="text/css" />
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="top-details">
-        <button type="button" class="here" id="here">📍</button>
         <form class="form-inline" id="search-form">
           <input
             type="search"
@@ -38,15 +37,39 @@
             class="form-control mr-sm-2"
             aria-label="search"
           />
+
           <button
             type="submit"
             value="search"
             class="btn btn-outline-secondary my-2 my-sm-0"
           >
-            🔍
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+              />
+            </svg>
+          </button>
+          <button type="button" class="here" id="here">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-geo-alt-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+              />
+            </svg>
           </button>
         </form>
-
         <div class="space"></div>
 
         <div class="img-container">
@@ -63,9 +86,7 @@
             </h2>
           </div>
         </div>
-      </div>
-
-      <div class="bottom-details">
+         <div class="bottom-details">
         <div class="row">
           <div class="col-sm-12">
             <div class="current-time">
@@ -73,6 +94,10 @@
             </div>
           </div>
         </div>
+        <div class="row">
+      </div>
+
+      <div class="bottom-details">
         <div class="row">
           <div class="col-sm">
             <span class="futureDay">M</span>
@@ -138,6 +163,6 @@
       >
       by Samantha Cabrera
     </dev>
-    <script src="style/data.js"></script>
+    <script src="source/data.js"></script>
   </body>
 </html>
