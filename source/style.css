@@ -67,6 +67,9 @@ form {
   font-weight: bold;
   text-align: right;
 }
+.details-result ::first-letter {
+  text-transform: capitalize;
+}
 
 .city-result {
   float: left;

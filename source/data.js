@@ -46,6 +46,7 @@ h3.innerHTML = formatDate(now);
 //search by city starts
 
 function showCurrentTemp(response) {
+  console.log(response.data);
   document.querySelector("#temp-number").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -57,7 +58,7 @@ function showCurrentTemp(response) {
   );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#condition").innerHTML =
-    response.data.weather[0].main;
+    response.data.weather[0].description;
 }
 
 function searchByCity(city) {
