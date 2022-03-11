@@ -46,15 +46,15 @@ h3.innerHTML = formatDate(now);
 //search by city starts
 
 function showCurrentTemp(response) {
-  document.querySelector("#temp-number").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  metricTemperature = response.data.main.temp;
+  metricFeels = response.data.main.feels_like;
+
+  document.querySelector("#temp-number").innerHTML =
+    Math.round(metricTemperature);
   document.querySelector("#current-city").innerHTML = response.data.name;
   //document.querySelector("#fahrenheit-link").innerHTML = "°C";
   //document.querySelector("#celsius-link").innerHTML = "°F";
-  document.querySelector("#feels-like").innerHTML = Math.round(
-    response.data.main.feels_like
-  );
+  document.querySelector("#feels-like").innerHTML = Math.round(metricFeels);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#condition").innerHTML =
     response.data.weather[0].description;
@@ -67,7 +67,6 @@ function showCurrentTemp(response) {
   document
     .querySelector("#icon-1")
     .setAttribute("alt", response.data.weather[0].description);
-  document.querySelector("futureDay").innerHTML = response.data.main.humidity;
 }
 
 function searchByCity(city) {
@@ -82,30 +81,13 @@ function handleSubmit(event) {
   let city = document.querySelector("#search-input").value;
   searchByCity(city);
 }
-//search on load
-searchByCity("Mexico City");
-
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", handleSubmit);
-
 //forecast
 function forecast(response) {
   let apiKey = "8c9e2e229b27479d87f45960af4a2ad3";
   let apiBase = `https://api.openweathermap.org/data/2.5/onecall?`;
   let apiUrl2 = `${apiBase}lat=${response.coords.latitude}&lon=${response.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl2).then(showCurrentTemp);
-  console.log(apiUrl2);
 }
-
-function showForecast(event) {
-  event.preventDefault();
-  let response = document.querySelector("#search-input").value;
-  forecast(response);
-}
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", showForecast);
-
-// forecast preview
 
 //geolocation starts
 
@@ -124,17 +106,40 @@ function currentLocation(event) {
 let hereButton = document.querySelector("#here");
 hereButton.addEventListener("click", currentLocation);
 
-//units
+//units;
 
-//function convertToCelsius(event) {
-// event.preventDefault();
-// document.querySelector("#temp-number").innerHTML = 19;}
-//let celsius = document.querySelector("#celsius-link");
-//celsius.addEventListener("click", convertToCelsius);
+function convertToCelsius(event) {
+  event.preventDefault();
+  //fahrentheit.classlist.remove("active");
+  //celsius.classlist.add("active");
+  document.querySelector("#temp-number").innerHTML =
+    Math.round(metricTemperature);
+  document.querySelector("#feels-like").innerHTML = Math.round(metricFeels);
+}
 
-//function convertToFahrenheit(event) {
-//event.preventDefault();
-//document.querySelector("#temp-number").innerHTML = 65;}
+let celsius = document.querySelector("#celsius-link");
+celsius.addEventListener("click", convertToCelsius);
 
-//let fahrenheit = document.querySelector("#fahrenheit-link");
-//fahrenheit.addEventListener("click", convertToFahrenheit);
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  //celsius.classlist.remove("active");
+  //fahrentheit.classlist.add("active");
+  document.querySelector("#temp-number").innerHTML = Math.round(
+    (metricTemperature * 9) / 5 + 32
+  );
+  document.querySelector("#feels-like").innerHTML = Math.round(
+    (metricFeels * 9) / 5 + 32
+  );
+}
+
+let metricTemperature = null;
+let metricFeels = null;
+
+let fahrenheit = document.querySelector("#fahrenheit-link");
+fahrenheit.addEventListener("click", convertToFahrenheit);
+
+//search on load
+searchByCity("Mexico City");
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
