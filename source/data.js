@@ -46,7 +46,6 @@ h3.innerHTML = formatDate(now);
 //search by city starts
 
 function showCurrentTemp(response) {
-  console.log(response.data);
   document.querySelector("#temp-number").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -88,13 +87,12 @@ searchByCity("Mexico City");
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
-//geolocation starts
-
-function searchByPosition(position) {
+//forecast
+function forecast(response) {
   let apiKey = "8c9e2e229b27479d87f45960af4a2ad3";
-  let apiBase = `https://api.openweathermap.org/data/2.5/weather?`;
-  apiUrl1 = `${apiBase}lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl1).then(showCurrentTemp);
+  let apiBase = `https://api.openweathermap.org/data/2.5/onecall?`;
+  let apiUrl2 = `lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl2).then(showCurrentTemp);
 }
 
 function currentLocation(event) {
