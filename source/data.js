@@ -59,6 +59,15 @@ function showCurrentTemp(response) {
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#condition").innerHTML =
     response.data.weather[0].description;
+  document
+    .querySelector("#icon-1")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+  document
+    .querySelector("#icon-1")
+    .setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchByCity(city) {
