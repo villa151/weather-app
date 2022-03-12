@@ -1,0 +1,162 @@
+body {
+  width: 100%;
+  background-color: #483958bd;
+}
+.container {
+  width: 600px;
+  max-width: 80%;
+  padding: 20 px;
+  margin: 20px auto;
+  background-color: #f7f7f7a4;
+  border: 2px solid #483958bd;
+  border-radius: 5px;
+}
+
+.here {
+  float: left;
+  position: relative;
+  padding: 6px 13px;
+  font-family: "Josefin Sans", sans-serif;
+  color: white;
+  background: #483958bd;
+  border: 1px solid #69488de0;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px grey;
+  transition: all 150ms ease-in-out;
+  margin: 15px auto 5px 0;
+  font-size: 20px;
+  font-weight: 100;
+}
+.here:hover {
+  color: #483958;
+  background: white;
+  cursor: pointer;
+}
+
+form {
+  display: block;
+  position: relative;
+  float: right;
+  height: 30px;
+  margin: 15px 0 15px auto;
+}
+
+.space {
+  height: 90px;
+}
+.img-container {
+  background-image: url(../media/mexico.jpg);
+  height: 300px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 4px;
+  text-align: left;
+  display: block;
+}
+.details-result {
+  float: right;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  right: 8px;
+  top: 15px;
+  font-size: 15px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: right;
+}
+.details-result ::first-letter {
+  text-transform: capitalize;
+}
+
+.city-result {
+  float: left;
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  bottom: 10px;
+  left: 8px;
+  font-weight: 900;
+}
+
+h1 {
+  font-size: 65px;
+  height: 75px;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+h2 {
+  font-size: 30px;
+  padding-left: 8px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.units {
+  display: inline-block;
+  font-size: 25px;
+}
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover,
+a:visited,
+a:active {
+  color: #f7f7f7a4;
+  text-decoration: underline;
+}
+
+.current-time {
+  display: block;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  color: #69488de0;
+  padding-top: 21px;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.col-sm {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  padding: 25px 0 40px 0;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.futureDay {
+  color: #483958;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.futureDate {
+  color: #69488de0;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+p {
+  font-size: 40px;
+}
+
+.tempHigh {
+  color: rgb(75, 75, 75);
+  font-weight: 400;
+}
+.tempLow {
+  color: rgb(75, 75, 75);
+  font-weight: 100;
+}
+
+.source-link {
+  display: block;
+  text-align: center;
+  font-size: small;
+}
