@@ -48,6 +48,7 @@ h3.innerHTML = formatDate(now);
 function showCurrentTemp(response) {
   metricTemperature = response.data.main.temp;
   metricFeels = response.data.main.feels_like;
+  metricSpeed = response.data.wind.speed;
 
   document.querySelector("#temp-number").innerHTML =
     Math.round(metricTemperature);
@@ -55,6 +56,7 @@ function showCurrentTemp(response) {
   //document.querySelector("#fahrenheit-link").innerHTML = "°C";
   //document.querySelector("#celsius-link").innerHTML = "°F";
   document.querySelector("#feels-like").innerHTML = Math.round(metricFeels);
+  document.querySelector("#speed").innerHTML = Math.round(metricSpeed);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#condition").innerHTML =
     response.data.weather[0].description;
@@ -114,7 +116,10 @@ function convertToCelsius(event) {
   //celsius.classlist.add("active");
   document.querySelector("#temp-number").innerHTML =
     Math.round(metricTemperature);
+  document.querySelector("#speed").innerHTML = Math.round(metricSpeed);
+  document.querySelector("#speed-unit").innerHTML = " km/hr";
   document.querySelector("#feels-like").innerHTML = Math.round(metricFeels);
+  document.querySelector("#feels-unit").innerHTML = " °C";
 }
 
 let celsius = document.querySelector("#celsius-link");
@@ -127,13 +132,19 @@ function convertToFahrenheit(event) {
   document.querySelector("#temp-number").innerHTML = Math.round(
     (metricTemperature * 9) / 5 + 32
   );
+  document.querySelector("#speed").innerHTML = Math.round(
+    metricSpeed * 0.621371192
+  );
+  document.querySelector("#speed-unit").innerHTML = " mph";
   document.querySelector("#feels-like").innerHTML = Math.round(
     (metricFeels * 9) / 5 + 32
   );
+  document.querySelector("#feels-unit").innerHTML = " °F";
 }
 
 let metricTemperature = null;
 let metricFeels = null;
+let metricSpeed = null;
 
 let fahrenheit = document.querySelector("#fahrenheit-link");
 fahrenheit.addEventListener("click", convertToFahrenheit);
