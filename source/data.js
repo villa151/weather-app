@@ -53,10 +53,12 @@ function showCurrentTemp(response) {
   document.querySelector("#temp-number").innerHTML =
     Math.round(metricTemperature);
   document.querySelector("#current-city").innerHTML = response.data.name;
-  //document.querySelector("#fahrenheit-link").innerHTML = "°C";
-  //document.querySelector("#celsius-link").innerHTML = "°F";
-  document.querySelector("#feels-like").innerHTML = Math.round(metricFeels);
+  //document.querySelector("#fahrenheit-link").innerHTML = "°F";
+  //document.querySelector("#celsius-link").innerHTML = "°C";
   document.querySelector("#speed").innerHTML = Math.round(metricSpeed);
+  document.querySelector("#speed-unit").innerHTML = " km/hr";
+  document.querySelector("#feels-like").innerHTML = Math.round(metricFeels);
+  document.querySelector("#feels-unit").innerHTML = "°C";
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#condition").innerHTML =
     response.data.weather[0].description;
@@ -84,12 +86,11 @@ function handleSubmit(event) {
   searchByCity(city);
 }
 //forecast
-function forecast(response) {
-  let apiKey = "8c9e2e229b27479d87f45960af4a2ad3";
-  let apiBase = `https://api.openweathermap.org/data/2.5/onecall?`;
-  let apiUrl2 = `${apiBase}lat=${response.coords.latitude}&lon=${response.coords.longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl2).then(showCurrentTemp);
-}
+//function forecast(response) {
+//let apiKey = "8c9e2e229b27479d87f45960af4a2ad3";
+//let apiBase = `https://api.openweathermap.org/data/2.5/onecall?`;
+//let apiUrl2 = `${apiBase}lat=${response.coords.latitude}&lon=${response.coords.longitude}&appid=${apiKey}&units=metric`;
+//axios.get(apiUrl2).then(showCurrentTemp);}
 
 //geolocation starts
 
@@ -110,28 +111,13 @@ hereButton.addEventListener("click", currentLocation);
 
 //units;
 
-function convertToCelsius(event) {
-  event.preventDefault();
-  //fahrentheit.classlist.remove("active");
-  //celsius.classlist.add("active");
-  document.querySelector("#temp-number").innerHTML =
-    Math.round(metricTemperature);
-  document.querySelector("#speed").innerHTML = Math.round(metricSpeed);
-  document.querySelector("#speed-unit").innerHTML = " km/hr";
-  document.querySelector("#feels-like").innerHTML = Math.round(metricFeels);
-  document.querySelector("#feels-unit").innerHTML = " °C";
-}
-
-let celsius = document.querySelector("#celsius-link");
-celsius.addEventListener("click", convertToCelsius);
-
 function convertToFahrenheit(event) {
   event.preventDefault();
-  //celsius.classlist.remove("active");
-  //fahrentheit.classlist.add("active");
   document.querySelector("#temp-number").innerHTML = Math.round(
     (metricTemperature * 9) / 5 + 32
   );
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
   document.querySelector("#speed").innerHTML = Math.round(
     metricSpeed * 0.621371192
   );
@@ -140,11 +126,31 @@ function convertToFahrenheit(event) {
     (metricFeels * 9) / 5 + 32
   );
   document.querySelector("#feels-unit").innerHTML = " °F";
+
+  //document.querySelector("#fahrenheit-link").innerHTML = "°C";
+  //document.querySelector("#celsius-link").innerHTML = "°F";
+}
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  document.querySelector("#temp-number").innerHTML =
+    Math.round(metricTemperature);
+  document.querySelector("#speed").innerHTML = Math.round(metricSpeed);
+  document.querySelector("#speed-unit").innerHTML = " km/hr";
+  document.querySelector("#feels-like").innerHTML = Math.round(metricFeels);
+  document.querySelector("#feels-unit").innerHTML = " °C";
+  //document.querySelector("#fahrenheit-link").innerHTML = "°F";
+  //document.querySelector("#celsius-link").innerHTML = "°C";
+  fahrenheit.classList.remove("active");
+  celsius.classList.add("active");
 }
 
 let metricTemperature = null;
 let metricFeels = null;
 let metricSpeed = null;
+
+let celsius = document.querySelector("#celsius-link");
+celsius.addEventListener("click", convertToCelsius);
 
 let fahrenheit = document.querySelector("#fahrenheit-link");
 fahrenheit.addEventListener("click", convertToFahrenheit);
