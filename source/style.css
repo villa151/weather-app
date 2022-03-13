@@ -139,8 +139,8 @@ h2 {
   font-weight: 400;
 }
 
-p {
-  font-size: 40px;
+img {
+  float: center;
 }
 
 .tempHigh {
