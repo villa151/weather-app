@@ -43,6 +43,39 @@ let now = new Date();
 let h3 = document.querySelector("#current-date");
 h3.innerHTML = formatDate(now);
 
+//forecast
+//function forecast(response) {
+//let apiKey = "8c9e2e229b27479d87f45960af4a2ad3";
+//let apiBase = `https://api.openweathermap.org/data/2.5/onecall?`;
+//let apiUrl2 = `${apiBase}lat=${response.coords.latitude}&lon=${response.coords.longitude}&appid=${apiKey}&units=metric`;
+//axios.get(apiUrl2).then(showCurrentTemp);}
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["M", "T", "W", "T", "F"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+  <div class="col-sm">
+    <span class="futureDay" id="futureDay">${day}</span>
+    <br />
+    <span class="futureDate">7</span>
+    <br />
+    <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="Clear" id="icon"/>
+    <br />
+    <span class="tempHigh">HIGH</span>
+    <br />
+    <span class="tempLow">LOW</span>
+  </div>
+`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 //search by city starts
 
 function showCurrentTemp(response) {
@@ -62,39 +95,15 @@ function showCurrentTemp(response) {
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#condition").innerHTML =
     response.data.weather[0].description;
-  document
-    .querySelector("#icon-1")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-  document
-    .querySelector("#icon-2")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-  document
-    .querySelector("#icon-3")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-  document
-    .querySelector("#icon-4")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-  document
-    .querySelector("#icon-5")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-  document
-    .querySelector("#icon")
-    .setAttribute("alt", response.data.weather[0].description);
+  //document
+  //.querySelector("#icon")
+  //.setAttribute(
+  //"src",
+  //`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  //);
+  //document
+  //.querySelector("#icon")
+  //.setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchByCity(city) {
@@ -109,12 +118,6 @@ function handleSubmit(event) {
   let city = document.querySelector("#search-input").value;
   searchByCity(city);
 }
-//forecast
-//function forecast(response) {
-//let apiKey = "8c9e2e229b27479d87f45960af4a2ad3";
-//let apiBase = `https://api.openweathermap.org/data/2.5/onecall?`;
-//let apiUrl2 = `${apiBase}lat=${response.coords.latitude}&lon=${response.coords.longitude}&appid=${apiKey}&units=metric`;
-//axios.get(apiUrl2).then(showCurrentTemp);}
 
 //geolocation starts
 
@@ -181,6 +184,7 @@ fahrenheit.addEventListener("click", convertToFahrenheit);
 
 //search on load
 searchByCity("Mexico City");
+displayForecast();
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
