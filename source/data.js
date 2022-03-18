@@ -43,26 +43,50 @@ let now = new Date();
 let h3 = document.querySelector("#current-date");
 h3.innerHTML = formatDate(now);
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["S", "M", "T", "W", "T", "F", "S"];
+
+  return days[day];
+}
+
+function formatForecastDate(timestamp) {
+  let forecastDate = new Date(timestamp * 1000);
+  let dayDate = forecastDate.getDate();
+  let numbers = [
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+    21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
+  ];
+
+  return numbers[dayDate];
+}
+
 function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["M", "T", "W", "T", "F"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
   <div class="col-sm">
-    <span class="futureDay" id="futureDay">${day}</span>
+    <span class="futureDay" id="futureDay">${formatDay(forecastDay.dt)}</span>
     <br />
-    <span class="futureDate">7</span>
+    <span class="futureDate">${formatForecastDate(forecastDay.dt)}</span>
     <br />
-    <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="Clear" id="icon"/>
+    <img src="http://openweathermap.org/img/wn/${
+      forecastDay.weather[0].icon
+    }@2x.png" alt="Clear" id="icon"/>
     <br />
-    <span class="tempHigh">HIGH</span>
+    <span class="tempHigh">${Math.round(forecastDay.temp.max)}°</span>
     <br />
-    <span class="tempLow">LOW</span>
+    <span class="tempLow">${Math.round(forecastDay.temp.min)}°</span>
   </div>
 `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
