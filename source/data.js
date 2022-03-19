@@ -51,6 +51,7 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+//forecast
 function formatForecastDate(timestamp) {
   let forecastDate = new Date(timestamp * 1000);
   let dayDate = forecastDate.getDate();
@@ -68,6 +69,8 @@ function displayForecast(response) {
   let forecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
+    metricHigh = forecastDay.temp.max;
+    metricLow = forecastDay.temp.min;
     if (index < 5) {
       forecastHTML =
         forecastHTML +
@@ -81,9 +84,9 @@ function displayForecast(response) {
       forecastDay.weather[0].icon
     }@2x.png" alt="Clear" id="icon"/>
     <br />
-    <span class="tempHigh">${Math.round(forecastDay.temp.max)}°</span>
+    <span class="tempHigh">${Math.round(metricHigh)}°</span>
     <br />
-    <span class="tempLow">${Math.round(forecastDay.temp.min)}°</span>
+    <span class="tempLow">${Math.round(metricLow)}°</span>
   </div>
 `;
     }
@@ -92,7 +95,6 @@ function displayForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-//forecast
 
 function getForecast(coordinates) {
   console.log(coordinates);
@@ -180,12 +182,15 @@ function convertToFahrenheit(event) {
     (metricFeels * 9) / 5 + 32
   );
   document.querySelector("#feels-unit").innerHTML = " °F";
-
+  document.querySelector(".tempHigh").innerHTML =
+    Math.round((metricHigh * 9) / 5 + 32) + `°`;
+  document.querySelector(".tempLow").innerHTML =
+    Math.round((metricLow * 9) / 5 + 32) + `°`;
   //document.querySelector("#fahrenheit-link").innerHTML = "°C";
   //document.querySelector("#celsius-link").innerHTML = "°F";
 }
 
-function convertToCelsius(event) {
+function convertBackToCelsius(event) {
   event.preventDefault();
   document.querySelector("#temp-number").innerHTML =
     Math.round(metricTemperature);
@@ -193,6 +198,8 @@ function convertToCelsius(event) {
   document.querySelector("#speed-unit").innerHTML = " km/hr";
   document.querySelector("#feels-like").innerHTML = Math.round(metricFeels);
   document.querySelector("#feels-unit").innerHTML = " °C";
+  document.querySelector(".tempHigh").innerHTML = Math.round(metricHigh) + `°`;
+  document.querySelector(".tempLow").innerHTML = Math.round(metricLow) + `°`;
   //document.querySelector("#fahrenheit-link").innerHTML = "°F";
   //document.querySelector("#celsius-link").innerHTML = "°C";
   fahrenheit.classList.remove("active");
@@ -202,9 +209,11 @@ function convertToCelsius(event) {
 let metricTemperature = null;
 let metricFeels = null;
 let metricSpeed = null;
+let metricHigh = null;
+let metricLow = null;
 
 let celsius = document.querySelector("#celsius-link");
-celsius.addEventListener("click", convertToCelsius);
+celsius.addEventListener("click", convertBackToCelsius);
 
 let fahrenheit = document.querySelector("#fahrenheit-link");
 fahrenheit.addEventListener("click", convertToFahrenheit);
