@@ -84,9 +84,9 @@ function displayForecast(response) {
       forecastDay.weather[0].icon
     }@2x.png" alt="Clear" id="icon"/>
     <br />
-    <span class="tempHigh">${Math.round(metricHigh)}°</span>
+    <span class="tempHigh" id="temp-high">${Math.round(metricHigh)}°</span>
     <br />
-    <span class="tempLow">${Math.round(metricLow)}°</span>
+    <span class="tempLow" id="temp-low">${Math.round(metricLow)}°</span>
   </div>
 `;
     }
@@ -198,8 +198,8 @@ function convertBackToCelsius(event) {
   document.querySelector("#speed-unit").innerHTML = " km/hr";
   document.querySelector("#feels-like").innerHTML = Math.round(metricFeels);
   document.querySelector("#feels-unit").innerHTML = " °C";
-  document.querySelector(".tempHigh").innerHTML = Math.round(metricHigh) + `°`;
-  document.querySelector(".tempLow").innerHTML = Math.round(metricLow) + `°`;
+  document.getElementById("temp-high").innerHTML = Math.round(metricHigh) + `°`;
+  document.getElementbyId("temp-low").innerHTML = Math.round(metricLow) + `°`;
   //document.querySelector("#fahrenheit-link").innerHTML = "°F";
   //document.querySelector("#celsius-link").innerHTML = "°C";
   fahrenheit.classList.remove("active");
