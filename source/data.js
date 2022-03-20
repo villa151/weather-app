@@ -114,25 +114,14 @@ function showCurrentTemp(response) {
   document.querySelector("#temp-number").innerHTML =
     Math.round(metricTemperature);
   document.querySelector("#current-city").innerHTML = response.data.name;
-  //document.querySelector("#fahrenheit-link").innerHTML = "°F";
-  //document.querySelector("#celsius-link").innerHTML = "°C";
   document.querySelector("#speed").innerHTML = Math.round(metricSpeed);
-  document.querySelector("#speed-unit").innerHTML = " km/hr";
+  document.querySelector("#speed-unit").innerHTML = " m/s";
   document.querySelector("#feels-like").innerHTML = Math.round(metricFeels);
   document.querySelector("#feels-unit").innerHTML = "°C";
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#condition").innerHTML =
     response.data.weather[0].description;
   getForecast(response.data.coord);
-  //document
-  //.querySelector("#icon")
-  //.setAttribute(
-  //"src",
-  //`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  //);
-  //document
-  //.querySelector("#icon")
-  //.setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchByCity(city) {
@@ -164,59 +153,6 @@ function currentLocation(event) {
 
 let hereButton = document.querySelector("#here");
 hereButton.addEventListener("click", currentLocation);
-
-//units;
-
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  document.querySelector("#temp-number").innerHTML = Math.round(
-    (metricTemperature * 9) / 5 + 32
-  );
-  celsius.classList.remove("active");
-  fahrenheit.classList.add("active");
-  document.querySelector("#speed").innerHTML = Math.round(
-    metricSpeed * 0.621371192
-  );
-  document.querySelector("#speed-unit").innerHTML = " mph";
-  document.querySelector("#feels-like").innerHTML = Math.round(
-    (metricFeels * 9) / 5 + 32
-  );
-  document.querySelector("#feels-unit").innerHTML = " °F";
-  document.querySelector(".tempHigh").innerHTML =
-    Math.round((metricHigh * 9) / 5 + 32) + `°`;
-  document.querySelector(".tempLow").innerHTML =
-    Math.round((metricLow * 9) / 5 + 32) + `°`;
-  //document.querySelector("#fahrenheit-link").innerHTML = "°C";
-  //document.querySelector("#celsius-link").innerHTML = "°F";
-}
-
-function convertBackToCelsius(event) {
-  event.preventDefault();
-  document.querySelector("#temp-number").innerHTML =
-    Math.round(metricTemperature);
-  document.querySelector("#speed").innerHTML = Math.round(metricSpeed);
-  document.querySelector("#speed-unit").innerHTML = " km/hr";
-  document.querySelector("#feels-like").innerHTML = Math.round(metricFeels);
-  document.querySelector("#feels-unit").innerHTML = " °C";
-  document.getElementById("temp-high").innerHTML = Math.round(metricHigh) + `°`;
-  document.getElementbyId("temp-low").innerHTML = Math.round(metricLow) + `°`;
-  //document.querySelector("#fahrenheit-link").innerHTML = "°F";
-  //document.querySelector("#celsius-link").innerHTML = "°C";
-  fahrenheit.classList.remove("active");
-  celsius.classList.add("active");
-}
-
-let metricTemperature = null;
-let metricFeels = null;
-let metricSpeed = null;
-let metricHigh = null;
-let metricLow = null;
-
-let celsius = document.querySelector("#celsius-link");
-celsius.addEventListener("click", convertBackToCelsius);
-
-let fahrenheit = document.querySelector("#fahrenheit-link");
-fahrenheit.addEventListener("click", convertToFahrenheit);
 
 //search on load
 searchByCity("Mexico City");
